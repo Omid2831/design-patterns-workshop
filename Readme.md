@@ -22,3 +22,9 @@ Sign :
 - Draw the box plot of the above calculated data
 
 - Draw a short conclusion from the boxplot drawing
+
+
+# Overview Task:
+
+compare the lifespan of two brands of batteries ( Brand A and Brand B) by calculating various statistical measures and
+visualizing the data using a dashboard to draw conclusions about the performance of each brand.
