@@ -40,3 +40,7 @@ class StatisticsCalculator:
 
         return modes
 
+    # define methods for range
+    def data_range(self):
+        return max(self.data) - min(self.data)
+    
