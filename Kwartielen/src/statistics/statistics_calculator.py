@@ -27,6 +27,10 @@ class StatisticsCalculator(IBasicStats, IQuartileStats):
         self._dataset = dataset
         self._data = dataset.get_values()  # already sorted by BatteryDataset
 
+    def get_data(self) -> list:
+        """Return a copy of the dataset values for external consumers."""
+        return list(self._data)
+
     # ------------------------------------------------------------------ median_definer ---
     def _median_of(self, data: list) -> float:
         n = len(data)
@@ -49,6 +53,29 @@ class StatisticsCalculator(IBasicStats, IQuartileStats):
     def spread(self) -> float:
         """Range (VB): difference between maximum and minimum value."""
         return max(self._data) - min(self._data)
+
+    def quartile(self, q: int) -> float:
+        """
+        Returns Q1, Q2, or Q3 using the exclusive median-of-halves method.
+
+        - Q2 is the median of the full dataset.
+        - Q1 is the median of the lower half.
+        - Q3 is the median of the upper half.
+        """
+        if q not in (1, 2, 3):
+            raise ValueError(f"Quartile q must be 1, 2, or 3, got {q}")
+
+        n = len(self._data)
+        mid = n // 2
+
+        if q == 2:
+            return self._median_of(self._data)
+        if q == 1:
+            return self._median_of(self._data[:mid])
+
+        upper_start = mid if n % 2 == 0 else mid + 1
+        return self._median_of(self._data[upper_start:])
+
     # ----------------------------------------------------------- Interquartiles ---
     def interquartile_range(self) -> float:
         """IQR (IKA) = Q3 - Q1."""
