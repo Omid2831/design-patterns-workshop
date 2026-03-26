@@ -1,9 +1,9 @@
+from SmartHouse.controller.smarthouseController import SmartHomeController
 from SmartHouse.devices.light import Light
-from SmartHouse.devices.thermostat import Thermostat
+from SmartHouse.devices.security_camera import SecurityCamera
 from SmartHouse.devices.smartdoor_lock import SmartDoorLock
 from SmartHouse.devices.smartspeaker import SmartSpeaker
-from SmartHouse.devices.security_camera import SecurityCamera
-from SmartHouse.controller.smarthouseController import SmartHomeController
+from SmartHouse.devices.thermostat import Thermostat
 
 from contextlib import redirect_stdout
 
