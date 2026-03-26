@@ -3,37 +3,40 @@ from SmartHouse.devices.thermostat import Thermostat
 from SmartHouse.devices.smartdoor_lock import SmartDoorLock
 from SmartHouse.devices.smartspeaker import SmartSpeaker
 from SmartHouse.devices.security_camera import SecurityCamera
-
 from SmartHouse.controller.smarthouseController import SmartHomeController
 
+from contextlib import redirect_stdout
+
 def main():
-    # Create devices
-    light = Light("light1", "Living Room", "Living Room Light", "Philips Hue")
-    thermostat = Thermostat("thermo1", "Hall", "Hall Thermostat", "Nest")
-    speaker = SmartSpeaker("speaker1", "Kitchen", "Kitchen Speaker", "Amazon Echo")
-    camera = SecurityCamera("camera1", "Front Door", "Front Door Camera", "Ring")
-    door_lock = SmartDoorLock("lock1", "Main Door", "Main Door Lock", "August")
 
-    # Group switchable devices
-    switchable_devices = [light, thermostat, speaker, camera]
+    with open("output.txt", "w", encoding="utf-8") as f, redirect_stdout(f):
+        # Create devices
+        light = Light("light1", "Living Room", "Living Room Light", "Philips Hue")
+        thermostat = Thermostat("thermo1", "Hall", "Hall Thermostat", "Nest")
+        speaker = SmartSpeaker("speaker1", "Kitchen", "Kitchen Speaker", "Amazon Echo")
+        camera = SecurityCamera("camera1", "Front Door", "Front Door Camera", "Ring")
+        door_lock = SmartDoorLock("lock1", "Main Door", "Main Door Lock", "August")
 
-    # Controller
-    controller = SmartHomeController()
+        # Group switchable devices
+        switchable_devices = [light, thermostat, speaker, camera]
 
-    print("\n--- Turning all devices ON ---")
-    controller.turn_all_on(switchable_devices)
+        # Controller
+        controller = SmartHomeController()
 
-    print("\n--- Using devices ---")
-    speaker.play("Lo-fi Beats")
-    thermostat.set_temperature(22)
-    camera.record_video()
+        print("\n--- Turning all devices ON ---")
+        controller.turn_all_on(switchable_devices)
 
-    print("\n--- Door actions ---")
-    door_lock.unlock()
-    door_lock.lock()
+        print("\n--- Using devices ---")
+        speaker.play("Lo-fi Beats")
+        thermostat.set_temperature(22)
+        camera.record_video()
 
-    print("\n--- Turning all devices OFF ---")
-    controller.turn_all_off(switchable_devices)
+        print("\n--- Door actions ---")
+        door_lock.unlock()
+        door_lock.lock()
+
+        print("\n--- Turning all devices OFF ---")
+        controller.turn_all_off(switchable_devices)
 
 
 if __name__ == "__main__":
