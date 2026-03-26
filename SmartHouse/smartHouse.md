@@ -1,6 +1,5 @@
 # Assignment: Refactor a Smart Home System (ISP + OOP)
 
-## Goal
 
 Design a **Smart Home system** using:
 
@@ -29,7 +28,6 @@ There are different devices:
 ### 1. Apply ISP (VERY IMPORTANT)
 
 Break `ISmartDevice` into smaller interfaces like:
-
 * `ISwitchable` → turnOn / turnOff
 * `ITemperatureControl` → setTemperature
 * `IMusicPlayer` → playMusic
