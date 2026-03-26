@@ -1,8 +1,8 @@
+import pandas as pd
+
+
 def print_comparison_table(stats, brand_names):
-    """Print a formatted comparison table of all core statistics."""
-    print("\n" + "=" * 100)
-    print(f"{'Statistic':<25} {brand_names[0]:<35} {brand_names[1]:<35}")
-    print("=" * 100)
+    """Print a formatted comparison table using a pandas DataFrame."""
 
     metrics = [
         ("Mean (Ge)", "mean"),
@@ -15,17 +15,18 @@ def print_comparison_table(stats, brand_names):
         ("IQR (IKA)", "iqr"),
     ]
 
+    rows = []
     for label, key in metrics:
         left_value = stats[brand_names[0]][key]
         right_value = stats[brand_names[1]][key]
 
-        if isinstance(left_value, list):
-            left_text = str(left_value)
-            right_text = str(right_value)
-        else:
-            left_text = f"{left_value:.2f}"
-            right_text = f"{right_value:.2f}"
+        rows.append(
+            {
+                "Statistic": label,
+                brand_names[0]: str(left_value) if isinstance(left_value, list) else f"{left_value:.2f}",
+                brand_names[1]: str(right_value) if isinstance(right_value, list) else f"{right_value:.2f}",
+            }
+        )
 
-        print(f"{label:<25} {left_text:<35} {right_text:<35}")
-
-    print("=" * 100)
+    frame = pd.DataFrame(rows, columns=["Statistic", brand_names[0], brand_names[1]])
+    print("\n" + frame.to_string(index=False))

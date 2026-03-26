@@ -1,0 +1,34 @@
+
+--- Turning all devices ON ---
+[Device Info] id=light1, location=Living Room, name=Living Room Light, type=Light, model=Philips Hue
+Living Room Light light ON
+[Device Info] id=thermo1, location=Hall, name=Hall Thermostat, type=Thermostat, model=Nest
+Hall Thermostat is now ON.
+[Device Info] id=speaker1, location=Kitchen, name=Kitchen Speaker, type=Smart Speaker, model=Amazon Echo
+Kitchen Speaker is now ON.
+[Device Info] id=camera1, location=Front Door, name=Front Door Camera, type=Security Camera, model=Ring
+Front Door Camera is now ON.
+
+--- Using devices ---
+[Device Info] id=speaker1, location=Kitchen, name=Kitchen Speaker, type=Smart Speaker, model=Amazon Echo
+Kitchen Speaker is playing: Lo-fi Beats
+[Device Info] id=thermo1, location=Hall, name=Hall Thermostat, type=Thermostat, model=Nest
+Desired temperature set to 22°C
+[Device Info] id=camera1, location=Front Door, name=Front Door Camera, type=Security Camera, model=Ring
+Front Door Camera is recording video.
+
+--- Door actions ---
+[Device Info] id=lock1, location=Main Door, name=Main Door Lock, type=Smart Door Lock, model=August
+Main Door Lock is now UNLOCKED.
+[Device Info] id=lock1, location=Main Door, name=Main Door Lock, type=Smart Door Lock, model=August
+Main Door Lock is now LOCKED.
+
+--- Turning all devices OFF ---
+[Device Info] id=light1, location=Living Room, name=Living Room Light, type=Light, model=Philips Hue
+Living Room Light light OFF
+[Device Info] id=thermo1, location=Hall, name=Hall Thermostat, type=Thermostat, model=Nest
+Hall Thermostat is now OFF.
+[Device Info] id=speaker1, location=Kitchen, name=Kitchen Speaker, type=Smart Speaker, model=Amazon Echo
+Kitchen Speaker is now OFF.
+[Device Info] id=camera1, location=Front Door, name=Front Door Camera, type=Security Camera, model=Ring
+Front Door Camera is now OFF.

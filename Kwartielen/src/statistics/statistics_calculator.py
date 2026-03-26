@@ -53,7 +53,7 @@ class StatisticsCalculator(IBasicStats, IQuartileStats):
     def spread(self) -> float:
         """Range (VB): difference between maximum and minimum value."""
         return max(self._data) - min(self._data)
-
+     # ----------------------------------------------------------- quartile ---
     def quartile(self, q: int) -> float:
         """
         Returns Q1, Q2, or Q3 using the exclusive median-of-halves method.
