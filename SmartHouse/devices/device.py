@@ -1,4 +1,6 @@
 class Device:
+    def device_info(self):
+        print(f"[Device Info] id={self.id}, location={self.device_location}, name={self.name}, type={self.device_type}, model={self.device_model}")
 
     def __init__(self, id, device_location, name, device_type, device_model):
         self.id = id
