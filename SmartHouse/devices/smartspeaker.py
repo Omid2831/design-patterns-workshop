@@ -1,7 +1,7 @@
-from SmartHouse.interfaces.IMusicPlayer import MusicPlayer
+from SmartHouse.interfaces.IMusicPlayer import IMusicPlayer
 from SmartHouse.interfaces.ISwitchable import ISwitchable
 
-class SmartSpeaker(MusicPlayer, ISwitchable):
+class SmartSpeaker(IMusicPlayer, ISwitchable):
     def __init__(self, name):
         super().__init__(name)
         self.volume = 50
