@@ -3,3 +3,6 @@
 
 # ignore all .pytest_cache directories
 **/.pytest_cache/
+
+# ignore all .txt files
+**/*.txt
