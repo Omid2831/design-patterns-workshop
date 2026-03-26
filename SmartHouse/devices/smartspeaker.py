@@ -1,10 +1,21 @@
 from SmartHouse.interfaces.IMusicPlayer import MusicPlayer
+from SmartHouse.interfaces.ISwitchable import ISwitchable
 
-class SmartSpeaker(MusicPlayer):
+class SmartSpeaker(MusicPlayer, ISwitchable):
     def __init__(self, name):
         super().__init__(name)
         self.volume = 50
+        self.is_on = False
 
+    
+    def switch_on(self):
+        self.is_on = True
+        print(f"{self.name} is now ON.")
+    
+    def switch_off(self):
+        self.is_on = False
+        print(f"{self.name} is now OFF.")
+        
     def play_music(self, song):
         print(f"{self.name} is playing: {song}")
 
